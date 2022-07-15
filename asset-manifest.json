@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Quote-Generator-App/static/css/main.92185ddf.css",
-    "main.js": "/Quote-Generator-App/static/js/main.21c0c609.js",
+    "main.js": "/Quote-Generator-App/static/js/main.8bb1c376.js",
     "static/js/787.198dafc8.chunk.js": "/Quote-Generator-App/static/js/787.198dafc8.chunk.js",
     "service-worker.js": "/Quote-Generator-App/service-worker.js",
     "static/media/Blocks-1.6s-200px.svg": "/Quote-Generator-App/static/media/Blocks-1.6s-200px.33e3b963ab294c82bf6a0355a76baf1a.svg",
     "index.html": "/Quote-Generator-App/index.html",
     "main.92185ddf.css.map": "/Quote-Generator-App/static/css/main.92185ddf.css.map",
-    "main.21c0c609.js.map": "/Quote-Generator-App/static/js/main.21c0c609.js.map",
+    "main.8bb1c376.js.map": "/Quote-Generator-App/static/js/main.8bb1c376.js.map",
     "787.198dafc8.chunk.js.map": "/Quote-Generator-App/static/js/787.198dafc8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92185ddf.css",
-    "static/js/main.21c0c609.js"
+    "static/js/main.8bb1c376.js"
   ]
 }
