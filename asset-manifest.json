@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/Quote-Generator-App/static/css/main.92185ddf.css",
-    "main.js": "/Quote-Generator-App/static/js/main.8bb1c376.js",
+    "main.css": "/Quote-Generator-App/static/css/main.010f9732.css",
+    "main.js": "/Quote-Generator-App/static/js/main.92bd1a0e.js",
     "static/js/787.198dafc8.chunk.js": "/Quote-Generator-App/static/js/787.198dafc8.chunk.js",
     "service-worker.js": "/Quote-Generator-App/service-worker.js",
+    "static/media/undraw_page_not_found_re_e9o6.svg": "/Quote-Generator-App/static/media/undraw_page_not_found_re_e9o6.307c79f4c1509cf418aa954c387fa59e.svg",
     "static/media/Blocks-1.6s-200px.svg": "/Quote-Generator-App/static/media/Blocks-1.6s-200px.33e3b963ab294c82bf6a0355a76baf1a.svg",
     "index.html": "/Quote-Generator-App/index.html",
-    "main.92185ddf.css.map": "/Quote-Generator-App/static/css/main.92185ddf.css.map",
-    "main.8bb1c376.js.map": "/Quote-Generator-App/static/js/main.8bb1c376.js.map",
+    "main.010f9732.css.map": "/Quote-Generator-App/static/css/main.010f9732.css.map",
+    "main.92bd1a0e.js.map": "/Quote-Generator-App/static/js/main.92bd1a0e.js.map",
     "787.198dafc8.chunk.js.map": "/Quote-Generator-App/static/js/787.198dafc8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.92185ddf.css",
-    "static/js/main.8bb1c376.js"
+    "static/css/main.010f9732.css",
+    "static/js/main.92bd1a0e.js"
   ]
 }
