@@ -39,9 +39,16 @@
 
 ![screenshot](https://user-images.githubusercontent.com/43000285/179273680-5e38a4ce-0d40-4d0e-99e6-22b6fa50b964.png)
 
+![screenshot](https://user-images.githubusercontent.com/43000285/179352354-9797f2ff-441a-469f-87c6-5248ed2a77c4.png)
+
+
+
 This App is a websites that generates random quotes.
 
 User can clicks on the quote author to go to the author page that contains some quotes for that author, and to go back to the home page user needs to click the random button that generates new quote beside taking user to the main page.
+
+If the user types a wrong author name in the browser bar or just types a non-existing route, that will take them to a 404 page.
+
 
 
 ### Built With
