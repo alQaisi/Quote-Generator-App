@@ -12,6 +12,7 @@ function AuthorPage(){
         setAuthor(authorName)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[authorName])
+    document.title =author;
     const Quotes=authorQuotes.map((quote,index)=><Quote key={index} quoteText={quote.quoteText}/>)
     return(
         <>

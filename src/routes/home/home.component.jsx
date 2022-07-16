@@ -5,6 +5,7 @@ import Loader from '../../components/loader/loader.component'
 
 function Home(){
     const {isError,quote}=useContext(QuoteContext);
+    document.title ="Quote Generator";
     return(
         <>
         {

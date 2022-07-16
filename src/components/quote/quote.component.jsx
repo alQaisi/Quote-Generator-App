@@ -11,7 +11,7 @@ function Quote({quoteAuthor,quoteGenre,quoteText}){
                 quoteAuthor
                 ?(
                     
-                    <Link to={`${quoteAuthor}`}><QuoteInfo>
+                    <Link to={`author/${quoteAuthor}`}><QuoteInfo>
                         <AuthorName genre={quoteGenre}>{quoteAuthor}</AuthorName>
                         <RightArrow/>
                     </QuoteInfo></Link>
