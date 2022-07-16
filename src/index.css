@@ -59,6 +59,16 @@ h1.Warning{
 a{
   all: unset;
 }
+@media screen and (max-width:1075px){
+  h1.authorName{
+    width:50%;
+  }
+}
+@media screen and (max-width:900px){
+  h1.authorName{
+    width:60%;
+  }
+}
 @media screen and (max-width:775px){
   span.space{
     margin-bottom:25px;
