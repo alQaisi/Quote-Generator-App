@@ -1,16 +1,35 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const AuthorContext=createContext({
+const INITIAL_AUTHOR_STATE={
     author:"",
     authorQuotes:[],
-    isError:false,
-});
+    isError:false
+};
+
+const AuthorReducer=(state,action)=>{
+    const { type, payload}=action;
+    switch(type){
+        case "ERROR":
+            return {...INITIAL_AUTHOR_STATE,isError:true};
+        case "SET_AUTHOR_NAME":
+            return {...INITIAL_AUTHOR_STATE,author:payload};
+        case "SET_AUTHOR_DATA":
+            return {...state,...payload}
+        default:
+            return state;
+    }
+}
+
+export const AuthorContext=createContext({...INITIAL_AUTHOR_STATE});
 
 export function AuthorProvider({children}){
-    const [author,setAuthor]=useState("");
-    const [authorQuotes,setAuthorQuotes]=useState([]);
-    const [isError,setIsError]=useState(false);
+    const [{author,authorQuotes,isError},dispatch]=useReducer(AuthorReducer,INITIAL_AUTHOR_STATE)
+
+    function setAuthor(authorName){
+        dispatch({type:"SET_AUTHOR_NAME",payload:authorName});
+    }
+
     const value={author,setAuthor,authorQuotes,isError};
     
     const navigate=useNavigate();
@@ -20,10 +39,11 @@ export function AuthorProvider({children}){
             try{
                 const response=await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes?author=${author}`);
                 const {data}=await response.json();
-                setAuthorQuotes(data);
-                data[0]?setAuthor(data[0].quoteAuthor):navigate("/404");
+                if(data[0])
+                    return dispatch({type:"SET_AUTHOR_DATA",payload:{authorQuotes:data,author:data[0].quoteAuthor}});
+                navigate("/404");
             }catch(err){
-                setIsError(true);
+                dispatch({type:"ERROR"});
             }
         }
         const abortController=new AbortController();
@@ -36,6 +56,5 @@ export function AuthorProvider({children}){
 
     return(
         <AuthorContext.Provider value={value}>{children}</AuthorContext.Provider>
-    )
-    
+    );
 }

@@ -1,19 +1,32 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
-export const QuoteContext=createContext({
+const INITIAL_QUOTE_STATE={
     quote:undefined,
     isError:false,
     fetchData:false
-});
+};
+
+const QuoteReducer=(state,action)=>{
+    const { type, payload}=action;
+    switch(type){
+        case "RELOAD":
+            return {...INITIAL_QUOTE_STATE,fetchData:!state.fetchData};
+        case "ERROR":
+            return {...INITIAL_QUOTE_STATE,isError:true};
+        case "SET_QUOTE":
+            return {...state,...payload}
+        default:
+            return state;
+    }
+}
+
+export const QuoteContext=createContext({...INITIAL_QUOTE_STATE});
 
 export function QuoteProvider({children}){
-    const [quote,setQuote]=useState(undefined);
-    const [isError,setIsError]=useState(false);
-    const [fetchData,setFetchData]=useState(false);
+    const [{quote,isError,fetchData},dispatch]=useReducer(QuoteReducer,INITIAL_QUOTE_STATE)
 
     function reload(){
-        setQuote(undefined);
-        setFetchData(!fetchData);
+        dispatch({type:"RELOAD"})
     }
 
     useEffect(function(){
@@ -25,9 +38,9 @@ export function QuoteProvider({children}){
                 const response=await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes?genre=${genre[genreIndex]}&limit=100`);
                 const {data}=await response.json();
                 const quoteIndex=Math.floor(Math.random()*data.length);
-                setQuote(data[quoteIndex]);
+                dispatch({type:"SET_QUOTE",payload:{quote:data[quoteIndex]}})
             }catch(err){
-                setIsError(true);
+                dispatch({type:"ERROR"})
             }
         }
         getQuote();
@@ -38,5 +51,5 @@ export function QuoteProvider({children}){
     const value={isError,quote,reload}
     return(
         <QuoteContext.Provider value={value}>{children}</QuoteContext.Provider>
-    )
+    );
 }
